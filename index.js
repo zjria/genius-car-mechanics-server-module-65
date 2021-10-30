@@ -26,7 +26,8 @@ async function run() {
         app.get('/services', async (req, res) => {
             const cursor = servicesCollection.find({});
             const services = await cursor.toArray();
-            res.send(services);
+            res.json(services);
+            // res.send(services);
         });
         // GET Single Service
         app.get('/services/:id', async (req, res) => {
@@ -53,7 +54,6 @@ async function run() {
             const result = await servicesCollection.deleteOne(query);
             res.json(result);
         })
-
     }
     finally {
         // await client.close();
@@ -66,7 +66,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/hello', (req, res) => {
-    res.send('hello updated here')
+    res.send('hello updated here, Verification ')
 })
 
 app.listen(port, () => {
