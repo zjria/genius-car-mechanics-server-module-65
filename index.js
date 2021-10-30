@@ -41,7 +41,7 @@ async function run() {
         // POST API
         app.post('/services', async (req, res) => {
             const service = req.body;
-            console.log('hit the post api', service);
+            console.log('hit the post api. zj', service);
 
             const result = await servicesCollection.insertOne(service);
             console.log(result);
@@ -73,7 +73,7 @@ app.get('/hello', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log('Running Genius Server on port', port);
+    console.log('Running Genius Server on port. zj', port);
 })
 
 /*
@@ -91,6 +91,7 @@ Every project
 7. heroku create (only one time for a project)
 8. command: git push heroku main
 
+    add some text
 ----
 update:
 1. save everything check locally
