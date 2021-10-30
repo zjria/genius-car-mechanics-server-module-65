@@ -28,20 +28,18 @@ async function run() {
             const services = await cursor.toArray();
             res.send(services);
         });
-
         // GET Single Service
         app.get('/services/:id', async (req, res) => {
             const id = req.params.id;
-            console.log('getting specific service. zj', id);
+            console.log('getting specific service.', id);
             const query = { _id: ObjectId(id) };
             const service = await servicesCollection.findOne(query);
             res.json(service);
         })
-
         // POST API
         app.post('/services', async (req, res) => {
             const service = req.body;
-            console.log('hit the post api. zj', service);
+            console.log('hit the post api.', service);
 
             const result = await servicesCollection.insertOne(service);
             console.log(result);
@@ -61,11 +59,10 @@ async function run() {
         // await client.close();
     }
 }
-
 run().catch(console.dir);
 
 app.get('/', (req, res) => {
-    res.send('Running Genius Server, zakaria');
+    res.send('Running Genius Server');
 });
 
 app.get('/hello', (req, res) => {
@@ -73,7 +70,7 @@ app.get('/hello', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log('Running Genius Server on port. zj', port);
+    console.log('Running Genius Server on port.', port);
 })
 
 /*
